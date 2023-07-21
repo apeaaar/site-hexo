@@ -540,6 +540,7 @@ header .go-back i {
     background-position: center center;
     background-size: cover;
     transform: translate3d(0px, 0px, 0px);
+    background-image: url("/0.jpg");
 }
 
 .index-cover {
