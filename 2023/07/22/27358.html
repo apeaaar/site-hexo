@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="apeaaarの站">
+    <meta name="keywords" content="Vue.2, apeaaarの站">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>apeaaarの站</title>
+    <title>Vue.2 | apeaaarの站</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.11.1/css/all.min.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://webcnstatic.yostar.net/ba_cn_web/prod/web/assets/pc-1.4ab3eebf.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://webcnstatic.yostar.net/ba_cn_web/prod/web/assets/pc-11.d9065553.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand" style="border-radius: 7px;border: 2px solid rgb(204, 204, 204);display:flex;justify-content: center;backdrop-filter: blur(4.8px);background-color: rgba(255, 255, 255, 0.256);width: fit-content;">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">Vue.2</h1>
                 </div>
             </div>
         </div>
@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-07-20
+                    2023-07-22
                 </div>
                 
 
@@ -452,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    250
+                    421
                 </div>
                 
 
@@ -474,9 +474,33 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>之前想，现在的密码和其他的信息都是加密保存的，一般人想得到原本的密码（复杂的）难度很大。不过在验证的时候一定会得到与原密码有关联的信息，人们也可以大力出奇迹，一个一个试，但这要很久的时间才能做到。不过，数字呢？</p>
-<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>Android上有种解锁密码的方式，这里说数字方式。</p>
-<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>首先搜索android源代码，可以得到<a target="_blank" rel="noopener" href="https://source.android.google.cn/?hl=zh-cn">https://source.android.google.cn/?hl=zh-cn</a>。进入页面，选择前往代码页面，就可以进入<a target="_blank" rel="noopener" href="https://cs.android.com/android/platform/superproject/?hl=zh-cn">https://cs.android.com/android/platform/superproject/?hl=zh-cn</a>(需要🪜)。搜索在“search for code or files”输入password，进入platform&#x2F;superproject&#x2F;master&#x2F;packages&#x2F;apps&#x2F;Settings&#x2F;src&#x2F;com&#x2F;android&#x2F;settings&#x2F;password&#x2F;，打开ConfirmLockPassword.java，查找onClick()，看到了一个似乎有用的handleNext()。在这个方法里，定义了一个又由getText()得到的passwordText，它应该就是锁屏界面下，我们输入的密码了。</p>
+                <h2 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h2><p>实现数据双向绑定。</p>
+<pre class=" language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- number1: 2 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span><span class="token entity" title="&#123;">&amp;#123;</span><span class="token entity" title="&#123;">&amp;#123;</span> number1 <span class="token entity" title="&#125;">&amp;#125;</span><span class="token entity" title="&#125;">&amp;#125;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>number1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>input</span><span class="token punctuation">></span></span>
+</code></pre>
+<p><code>number1</code>被定义为2，上面的<code>&lt;h1&gt;</code>标签内会显示2，下面的<code>&lt;input&gt;</code>标签内也会显示2。如果在<code>&lt;input&gt;</code>内输入新的内容，<code>number1</code>的值会改变，<code>&lt;h1&gt;</code>的内容也会改变。</p>
+<h2 id="v-on"><a href="#v-on" class="headerlink" title="v-on"></a>v-on</h2><p>绑定事件。</p>
+<pre class=" language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- isShow = false
+    clickbutton &amp;#123;
+    isShow = !isShow
+    isShow ? sometext = "按钮打开了！" : sometext = "按钮关闭了！"
+&amp;#125; --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name"><span class="token namespace">v-on:</span>click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>clickbutton<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>按钮<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span><span class="token entity" title="&#123;">&amp;#123;</span><span class="token entity" title="&#123;">&amp;#123;</span> sometext <span class="token entity" title="&#125;">&amp;#125;</span><span class="token entity" title="&#125;">&amp;#125;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>在上面的例子中，如果<code>button</code>被按下，就会触发<code>click</code>事件并执行方法<code>clickbutton</code>。在<code>clickbutton</code>中，会将<code>isShow</code>变为与它相反的真假值，这样就可以进行状态转化。三元操作符按照<code>isShow</code>的真假性执行表达式，如果<code>isShow</code>为真，<code>sometext</code>是“按钮打开了！”反之则是“按钮关闭了！”<br>也可以讲<code>clickbutton</code>的内容写到<code>v-on</code>里。</p>
+<h2 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h2><p>继续上一个例子。</p>
+<pre class=" language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- isShow = false
+    clickbutton &amp;#123;
+    isShow = !isShow
+&amp;#125;
+也可以将下面一行改成&lt;button v-on:click="isShow = !isShow">按钮&lt;/button> --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name"><span class="token namespace">v-on:</span>click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>clickbutton<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>开关<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">v-show</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>isShow<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>开关打开了！<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span> <span class="token attr-name">v-show</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>!isShow<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>开关关闭了！<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>按下<code>&lt;button&gt;</code>，会将<code>isShow</code>转化为与它相反的值。这一次使用<code>v-show</code>，它能按照指定的值的真假性显示元素。如果指定的值为<code>true</code>，<code>v-show</code>就会显示元素。<code>v-show</code>通过设置元素的可见性显示元素，而非删除和添加新的元素。<code>v-show</code>也可以传入表达式，比如上面的<code>!isShow</code>。</p>
 
                 
             </div>
@@ -503,7 +527,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.apeaaar.com/2023/07/20/0.html">https://blog.apeaaar.com/2023/07/20/0.html</a>
+                    <a href="https://blog.apeaaar.com/2023/07/22/27358.html">https://blog.apeaaar.com/2023/07/22/27358.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -594,54 +618,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/07/20/2.html">
+                <a href="/2023/07/22/27358.html">
                     <div class="card-image">
                         
                         
-                        <img src="https://webcnstatic.yostar.net/ba_cn_web/prod/web/assets/pc-1.4ab3eebf.jpg" class="responsive-img" alt="">
+                        <img src="https://webcnstatic.yostar.net/ba_cn_web/prod/web/assets/pc-11.d9065553.jpg" class="responsive-img" alt="Vue.2">
                         
-                        <span class="card-title"></span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-07-20
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            apeaaar
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2023/07/19/1.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="https://webcnstatic.yostar.net/ba_cn_web/prod/web/assets/pc-1.4ab3eebf.jpg" class="responsive-img" alt="">
-                        
-                        <span class="card-title"></span>
+                        <span class="card-title">Vue.2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -652,7 +640,45 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            apeaaar
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/07/20/2.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="https://webcnstatic.yostar.net/ba_cn_web/prod/web/assets/pc-4.edc52065.jpg" class="responsive-img" alt="建站">
+                        
+                        <span class="card-title">建站</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-07-20
                             </span>
                         <span class="publish-author">
                             
@@ -843,7 +869,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">1.3k</span>&nbsp;字
+                class="white-color">1.7k</span>&nbsp;字
             
             
             
