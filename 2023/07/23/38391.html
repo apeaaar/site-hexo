@@ -479,7 +479,7 @@
 <h2 id="注册应用"><a href="#注册应用" class="headerlink" title="注册应用"></a>注册应用</h2><p>前往<a target="_blank" rel="noopener" href="https://github.com/settings/applications/new">https://github.com/settings/applications/new</a>，填写应用名（Application name），主页链接（Homepage URL）和授权回调地址（Authorization callback URL）。<br>我的应用名写了Apeaaar’s Blog，主页链接写了<a href="https://blog.apeaaar.com/">https://blog.apeaaar.com/</a>，授权回调地址按照<a target="_blank" rel="noopener" href="https://github.com/walinejs/auth/">项目</a>的README写<a target="_blank" rel="noopener" href="https://auth.apeaaar.com/github">https://auth.apeaaar.com/github</a>。然后点击register application，注册应用。点击Generate a new client secret，之后会跳转，复制密钥和id。</p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>找到部署的auth服务，在环境变量里，将GITHUB_ID设置为你的应用的id，将GITHUB_SECRET设置为应用的密钥，之后重新部署。<br>找到waline的服务端，将OAUTH_URL设置为部署的auth服务的地址，再重新部署。</p>
 <h2 id="大功告成"><a href="#大功告成" class="headerlink" title="大功告成"></a>大功告成</h2><p>到评论区，点击登录，出现了新的窗口，点击Github的图标，出现Authorize XXX，我的是Authorize Apeaaar’s Blog，XXX就是你填的应用名，点击Authorize XXX，XXX就是github账号名，之后会自动跳转 ，窗口会自己关闭，评论的框也显示了github名，表示已经成功通过github登陆了。</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>不知github，<a target="_blank" rel="noopener" href="https://github.com/walinejs/auth/">项目</a>还有其他的登陆方式。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>不止github，<a target="_blank" rel="noopener" href="https://github.com/walinejs/auth/">项目</a>还有其他的登陆方式。</p>
 
                 
             </div>
